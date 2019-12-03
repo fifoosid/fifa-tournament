@@ -1,0 +1,10 @@
+<ui5-shellbar
+  primary-title="Ranking Tournament"
+  logo="./assets/images/fifa.png"
+  (logoClick)="navigateToHome()"
+>
+  <ui5-shellbar-item icon="table-view" text="Table" (itemClick)="navigatToTable()"></ui5-shellbar-item>
+  <ui5-shellbar-item icon="add-employee" text="Add Team" (itemClick)="navigatToAddTeam()"></ui5-shellbar-item>
+  <ui5-shellbar-item icon="add" text="Add Result" (itemClick)="navigatToAddResult()"></ui5-shellbar-item>
+</ui5-shellbar>
+<router-outlet></router-outlet>
