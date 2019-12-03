@@ -13,7 +13,7 @@ import "@ui5/webcomponents-icons/dist/icons/add.js";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fron-end';
+  title = 'front-end';
   constructor(private router: Router) {}
 
   navigateToHome() {
