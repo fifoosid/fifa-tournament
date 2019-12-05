@@ -1,3 +1,16 @@
-<p>
-  add-team works!
-</p>
+<ui5-panel header-text="Add New Team" fixed>
+  <form [formGroup]="newTeamForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <ui5-label for="name" required >Team Name</ui5-label>
+      <ui5-input id="name" formControlName="name" origami></ui5-input>
+    </div>
+
+    <div>
+      <ui5-label for="player" required >Player Name</ui5-label>
+      <ui5-input id="player" formControlName="player" origami></ui5-input>
+    </div>
+
+    <button>Add</button>
+  </form>
+</ui5-panel>
