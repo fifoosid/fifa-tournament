@@ -1,6 +1,7 @@
 const app = require('express')();
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const http = require('http');
+const server = http.Server(app);
+const io = require('socket.io')(server);
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 8080;
@@ -28,10 +29,13 @@ const apiRoutes = require("./api-routes");
 app.use('/api', apiRoutes);
 
 // socket.io
-io.on('connection', function(socket){
-    console.log('a user connected');
+io.on('connection', (socket) => {
+    socket.on('new-game-added', (gameDetails) => {
+        console.log(gameDetails);
+        socket.broadcast.emit('new-game-notification', gameDetails);
+    });
 });
 
-app.listen(port, () => {
+server.listen(port, () => {
     console.log("Express is listening on port: " + port);
 });

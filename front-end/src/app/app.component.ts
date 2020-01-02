@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from './notification.service';
 
 import "@ui5/webcomponents-fiori/dist/ShellBar.js";
 import "@ui5/webcomponents-fiori/dist/ShellBarItem.js";
@@ -14,7 +15,23 @@ import "@ui5/webcomponents-icons/dist/icons/add.js";
 })
 export class AppComponent {
   title = 'front-end';
-  constructor(private router: Router) {}
+  constructor(private router: Router, private notificationsService: NotificationsService) {
+    setTimeout(() => {
+      notificationsService.emitGame({
+        homeTeam: "1",
+        awayTeam: "2",
+        homeTeamScore: "2",
+        awayTeamScore: "3",
+      });
+    }, 1000);
+  }
+
+  ngOnInit() {
+    this.notificationsService.getNewGame()
+      .subscribe((newGameDetails: String) => {
+        console.log(newGameDetails);
+      })
+  }
 
   navigateToHome() {
     this.router.navigate(["/"]);

@@ -10,10 +10,8 @@ import { TableComponent } from './table/table.component';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { HomeComponent } from './home/home.component';
 import { AddResultComponent } from './add-result/add-result.component';
+import { NotificationsService } from './notification.service';
 
-// socket.io
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
 
 @NgModule({
   declarations: [
@@ -29,9 +27,10 @@ const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
     ReactiveFormsModule,
     AppRoutingModule,
     OrigamiFormsModule,
-    SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [
+    NotificationsService
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
