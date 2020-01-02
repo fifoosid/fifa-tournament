@@ -11,6 +11,10 @@ import { AddTeamComponent } from './add-team/add-team.component';
 import { HomeComponent } from './home/home.component';
 import { AddResultComponent } from './add-result/add-result.component';
 
+// socket.io
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,8 @@ import { AddResultComponent } from './add-result/add-result.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    OrigamiFormsModule  
+    OrigamiFormsModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent],
