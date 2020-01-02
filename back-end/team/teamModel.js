@@ -9,6 +9,11 @@ const teamSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    points: {
+        type: Number,
+        required: true,
+        default: 0
+    },
     playedGames: {
         type: Number,
         default: 0,

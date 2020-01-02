@@ -14,7 +14,7 @@ const matchSchema = mongoose.Schema({
         required: true
     },
     awayTeamScore: {
-        type: String,
+        type: Number,
         required: true
     },
 });

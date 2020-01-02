@@ -26,7 +26,7 @@ exports.addNewTeam = (request, response) => {
 };
 
 exports.getAllTeams = (req, res) => {
-    Team.get((err, teams) => {
+    Team.find((err, teams) => {
         if (err) {
             res.json({
                 code: 400,

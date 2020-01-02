@@ -15,6 +15,7 @@ router.route("/team")
     .post(teamController.addNewTeam);
 
 router.route("/match")
+    .get(matchController.getAllMatches)
     .post(matchController.addMatch);
 
 module.exports = router;
