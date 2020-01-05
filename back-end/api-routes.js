@@ -2,6 +2,7 @@ const router = require("express").Router();
 
 const teamController = require("./team/teamController");
 const matchController = require("./match/matchController");
+const tournamentController = require("./tournament/tournamendController");
 
 router.get('/', (request, response) => {
     response.json({
@@ -17,5 +18,9 @@ router.route("/team")
 router.route("/match")
     .get(matchController.getAllMatches)
     .post(matchController.addMatch);
+
+router.route("/tournament-started")
+    .get(tournamentController.getTournamentStarted)
+    .post(tournamentController.setTournamentStarted);
 
 module.exports = router;

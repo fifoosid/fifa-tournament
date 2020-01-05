@@ -20,6 +20,7 @@ exports.addNewTeam = (request, response) => {
 
         response.json({
             code: 200,
+            status: "success",
             data: team,
         });
     })
@@ -34,6 +35,7 @@ exports.getAllTeams = (req, res) => {
                 message: err,
             });
         }
+
         res.json({
             code: 200,
             status: "success",
