@@ -7,7 +7,7 @@ import { catchError } from "rxjs/operators";
   providedIn: 'root'
 })
 export class TeamService {
-  private ENDPOINT = "http://localhost:8080/api/team";
+  private ENDPOINT: string = "http://localhost:8080/api/team";
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

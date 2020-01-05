@@ -6,7 +6,7 @@ import "@ui5/webcomponents/dist/Input.js";
 import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 import "@ui5/webcomponents/dist/Label.js";
 import "@ui5/webcomponents/dist/MessageStrip.js";
-import { TeamService } from '../team.service';
+import { TeamService } from '../services/team.service';
 
 @Component({
   selector: 'app-add-team',

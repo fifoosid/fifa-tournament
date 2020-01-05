@@ -11,7 +11,7 @@ import { TableComponent } from './table/table.component';
 import { AddTeamComponent } from './add-team/add-team.component';
 import { HomeComponent } from './home/home.component';
 import { AddResultComponent } from './add-result/add-result.component';
-import { NotificationsService } from './notification.service';
+import { NotificationsService } from './services/notification.service';
 
 
 @NgModule({
