@@ -1,3 +1,36 @@
-<p>
-  add-result works!
-</p>
+<section>
+  <form [formGroup]="newResultForm" (ngSubmit)="addNewResult()">
+    
+    <div class="form-wrapper">
+      <div class="team-wrapper">
+          <div>
+            <ui5-label for="homeTeam" required show-colon>Home Team</ui5-label>
+            <ui5-input #homeTeam id="homeTeam" formControlName="homeTeam" show-suggestions origami>
+              <ng-container *ngFor="let team of teams">
+                <ui5-li [attr.id]="team._id">{{ team.teamName }}</ui5-li>
+              </ng-container>
+            </ui5-input>
+          </div>
+          <ui5-input class="score-input" type="Number" formControlName="homeTeamScore" origami></ui5-input>
+        </div>
+        
+        <div class="teams-separator">:</div>
+
+        <div class="team-wrapper">
+          <div>
+            <ui5-label for="awayTeam" required show-colon>Away Name</ui5-label>
+            <ui5-input #awayTeam id="awayTeam" formControlName="awayTeam" show-suggestions origami>
+              <ng-container *ngFor="let team of teams">
+                <ui5-li [data-id]="team._id">{{ team.teamName }}</ui5-li>
+              </ng-container>
+            </ui5-input>
+          </div>
+          <ui5-input class="score-input" type="Number" formControlName="awayTeamScore" origami></ui5-input>
+        </div>
+    </div>
+
+    <button class="add-button" [disabled]="newResultForm.invalid">Add </button>
+  </form>
+
+  <ui5-messagestrip class="messagestrip-positioning" type="Positive" no-close-button *ngIf="this.newResultAdded">New Match is Successfully Added!</ui5-messagestrip>
+</section>

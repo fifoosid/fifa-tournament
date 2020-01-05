@@ -1,0 +1,50 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.team-wrapper  {
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.teams-separator {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    user-select: none;
+}
+
+.team-wrapper:nth-child(3) {
+    flex-direction: row-reverse;
+}
+
+.score-input {
+    width: 4rem;
+    margin: 0 0.5rem;
+}
+
+.add-button {
+    padding: .5rem 1.5rem;
+    margin-top: 4rem;
+    background-color: #0a6ed1;
+    color: #fff;
+    border-radius: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.add-button[disabled] {
+    opacity: .5;
+    cursor: default;
+}
+
+.messagestrip-positioning {
+    width: 20rem;
+    max-width: 100%;
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+}
