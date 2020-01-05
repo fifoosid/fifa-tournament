@@ -7,6 +7,8 @@ import "@ui5/webcomponents-fiori/dist/ShellBarItem.js";
 import "@ui5/webcomponents-icons/dist/icons/table-view.js";
 import "@ui5/webcomponents-icons/dist/icons/add-employee.js";
 import "@ui5/webcomponents-icons/dist/icons/add.js";
+import { TeamService } from './services/team.service';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,22 +17,33 @@ import "@ui5/webcomponents-icons/dist/icons/add.js";
 })
 export class AppComponent {
   title = 'front-end';
-  constructor(private router: Router, private notificationsService: NotificationsService) {
-    setTimeout(() => {
-      notificationsService.emitGame({
-        homeTeam: "1",
-        awayTeam: "2",
-        homeTeamScore: "2",
-        awayTeamScore: "3",
-      });
-    }, 1000);
-  }
+  private newGameDetails;
+
+  constructor(
+    private router: Router,
+    private notificationsService: NotificationsService,
+    private teamService: TeamService) { }
 
   ngOnInit() {
     this.notificationsService.getNewGame()
-      .subscribe((newGameDetails: String) => {
-        console.log(newGameDetails);
-      })
+      .subscribe((newGameDetails: any) => {
+
+        combineLatest(
+          this.teamService.getTeamName(newGameDetails.homeTeam),
+          this.teamService.getTeamName(newGameDetails.awayTeam)).subscribe(([homeTeam, awayTeam]: any) => {
+            debugger;
+            this.newGameDetails = {
+              homeTeam: homeTeam.data,
+              awayTeam: awayTeam.data,
+              homeTeamScore: newGameDetails.homeTeamScore,
+              awayTeamScore: newGameDetails.awayTeamScore,
+            }
+          })
+
+        setTimeout(() => {
+          this.newGameDetails = undefined;
+        }, 3000);
+      });
   }
 
   navigateToHome() {

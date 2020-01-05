@@ -32,7 +32,6 @@ app.use('/api', cors(), apiRoutes);
 // socket.io
 io.on('connection', (socket) => {
     socket.on('new-game-added', (gameDetails) => {
-        console.log(gameDetails);
         socket.broadcast.emit('new-game-notification', gameDetails);
     });
 });

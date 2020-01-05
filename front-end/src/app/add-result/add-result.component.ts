@@ -8,6 +8,7 @@ import "@ui5/webcomponents/dist/Label.js";
 import "@ui5/webcomponents/dist/MessageStrip.js";
 import "@ui5/webcomponents/dist/StandardListItem.js";
 import { MatchService } from '../services/match.service';
+import { NotificationsService } from '../services/notification.service';
 
 @Component({
   selector: 'app-add-result',
@@ -24,7 +25,8 @@ export class AddResultComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private teamService: TeamService,
-    private matchService: MatchService) {
+    private matchService: MatchService,
+    private notificationsService: NotificationsService) {
     this.newResultForm = this.formBuilder.group({
       homeTeam:[''],
       awayTeam: [''],
@@ -68,6 +70,13 @@ export class AddResultComponent implements OnInit {
         setTimeout(() => {
           this.newResultAdded = false;
         }, 3000);
+      });
+
+      this.notificationsService.emitGame({
+        homeTeam,
+        awayTeam,
+        homeTeamScore: this.newResultForm.value.homeTeamScore,
+        awayTeamScore: this.newResultForm.value.awayTeamScore,
       });
   }
 

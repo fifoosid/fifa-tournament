@@ -26,20 +26,30 @@ exports.addNewTeam = (request, response) => {
     })
 };
 
-exports.getAllTeams = (req, res) => {
+exports.getAllTeams = (request, response) => {
     Team.find((err, teams) => {
         if (err) {
-            res.json({
+            response.json({
                 code: 400,
                 status: "error",
                 message: err,
             });
         }
 
-        res.json({
+        response.json({
             code: 200,
             status: "success",
             data: teams,
         });
     });
 };
+
+exports.getTeamName = async (request, response) => {
+    let result = await Team.findOne({_id: request.body.id});
+
+    response.json({
+        code: 200,
+        status: "success",
+        data: result.teamName,
+    })
+}

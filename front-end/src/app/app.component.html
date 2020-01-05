@@ -10,3 +10,5 @@
 <section class="main-content">
   <router-outlet></router-outlet>
 </section>
+
+<ui5-messagestrip class="messagestrip-positioning" type="Positive" no-close-button *ngIf="this.newGameDetails">The following game has just finished: {{ newGameDetails.homeTeam + " " + newGameDetails.homeTeamScore + " : " + newGameDetails.awayTeamScore + " " + newGameDetails.awayTeam }}</ui5-messagestrip>

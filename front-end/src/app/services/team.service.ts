@@ -8,6 +8,7 @@ import { catchError } from "rxjs/operators";
 })
 export class TeamService {
   private ENDPOINT: string = "http://localhost:8080/api/team";
+  private TEAM_NAME_ENDPOINT = "http://localhost:8080/api/team-name";
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -26,6 +27,13 @@ export class TeamService {
 
   getAllTeams() {
     return this.http.get(this.ENDPOINT, this.httpOptions)
+      .pipe(catchError(this.handleError));
+  }
+
+  getTeamName(id) {
+    return this.http.post(this.TEAM_NAME_ENDPOINT,{
+      id,
+    }, this.httpOptions)
       .pipe(catchError(this.handleError));
   }
 
