@@ -5,6 +5,7 @@ import "@ui5/webcomponents/dist/TableRow.js";
 import "@ui5/webcomponents/dist/TableCell.js";
 import "@ui5/webcomponents/dist/Title.js";
 import "@ui5/webcomponents/dist/Label.js";
+import { TeamService } from '../services/team.service';
 
 @Component({
   selector: 'app-table',
@@ -13,60 +14,15 @@ import "@ui5/webcomponents/dist/Label.js";
 })
 export class TableComponent implements OnInit {
 
-  teams: Array<any> =  [
-    {
-      name: "Man Utd",
-      player: "Ivan",
-      played_games: 8,
-      won_games: 6,
-      draw_games: 1,
-      lost_games: 1,
-      scored_goals: 24,
-      received_goals: 8,
-      goal_difference: 16,
-      points: 19
-    },
-    {
-      name: "Man Utd",
-      player: "Ivan",
-      played_games: 8,
-      won_games: 6,
-      draw_games: 1,
-      lost_games: 1,
-      scored_goals: 24,
-      received_goals: 8,
-      goal_difference: 16,
-      points: 19
-    },
-    {
-      name: "Man Utd",
-      player: "Ivan",
-      played_games: 8,
-      won_games: 6,
-      draw_games: 1,
-      lost_games: 1,
-      scored_goals: 24,
-      received_goals: 8,
-      goal_difference: 16,
-      points: 19
-    },
-    {
-      name: "Man Utd",
-      player: "Ivan",
-      played_games: 8,
-      won_games: 6,
-      draw_games: 1,
-      lost_games: 1,
-      scored_goals: 24,
-      received_goals: 8,
-      goal_difference: 16,
-      points: 19
-    }
-  ]
+  teams: Array<any> =  [];
 
-  constructor() { }
+  constructor(private teamService: TeamService) { }
 
   ngOnInit() {
+    this.teamService.getAllTeams()
+      .subscribe((teams: any) => {
+        this.teams = teams.data;
+      });
   }
 
 }

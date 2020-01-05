@@ -41,34 +41,40 @@
   <ui5-table-column slot="columns">
     <ui5-label>Goal Difference</ui5-label>
   </ui5-table-column>
+  <ui5-table-column slot="columns">
+      <ui5-label>Points</ui5-label>
+    </ui5-table-column>
 
   <ui5-table-row *ngFor="let team of teams; let position = index;">
     <ui5-table-cell>
       <ui5-title level="H3">{{ position + 1 }}</ui5-title>
     </ui5-table-cell>
     <ui5-table-cell>
-      <ui5-title level="H3">{{ team.name }}</ui5-title>
+      <ui5-title level="H3">{{ team.teamName }}</ui5-title>
     </ui5-table-cell>
     <ui5-table-cell>
-      <ui5-title level="H3">{{ team.player }}</ui5-title>
+      <ui5-title level="H3">{{ team.playerName }}</ui5-title>
     </ui5-table-cell>
     <ui5-table-cell>
-      <ui5-label>{{ team.won_games }}</ui5-label>
+      <ui5-label>{{ team.playedGames }}</ui5-label>
     </ui5-table-cell>
     <ui5-table-cell>
-        <ui5-label>{{ team.draw_games }}</ui5-label>      
+      <ui5-label>{{ team.wonGames }}</ui5-label>
     </ui5-table-cell>
     <ui5-table-cell>
-        <ui5-label>{{ team.lost_games }}</ui5-label>      
+        <ui5-label>{{ team.drawGames }}</ui5-label>      
     </ui5-table-cell>
     <ui5-table-cell>
-        <ui5-label>{{ team.scored_goals }}</ui5-label>      
+        <ui5-label>{{ team.lostGames }}</ui5-label>      
     </ui5-table-cell>
     <ui5-table-cell>
-        <ui5-label>{{ team.received_goals }}</ui5-label>      
+        <ui5-label>{{ team.scoredGoals }}</ui5-label>      
     </ui5-table-cell>
     <ui5-table-cell>
-        <ui5-label>{{ team.goal_difference }}</ui5-label>      
+        <ui5-label>{{ team.receivedGoals }}</ui5-label>      
+    </ui5-table-cell>
+    <ui5-table-cell>
+        <ui5-label>{{ team.goalDifference }}</ui5-label>      
     </ui5-table-cell>
     <ui5-table-cell>
         <ui5-label>{{ team.points }}</ui5-label>      
