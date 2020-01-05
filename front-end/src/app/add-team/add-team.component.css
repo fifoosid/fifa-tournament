@@ -5,3 +5,25 @@ ui5-panel {
 ui5-input {
     margin-bottom: 1rem;
 }
+
+.add-button {
+    padding: .5rem 1.5rem;
+    background-color: #0a6ed1;
+    color: #fff;
+    border-radius: .5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.add-button[disabled] {
+    opacity: .5;
+    cursor: default;
+}
+
+.messagestrip-positioning {
+    width: 20rem;
+    max-width: 100%;
+    position: fixed;
+    bottom: 2rem;
+    left: 2rem;
+}

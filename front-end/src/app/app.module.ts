@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { OrigamiFormsModule } from '@codebakery/origami/forms';
 
@@ -27,6 +28,7 @@ import { NotificationsService } from './notification.service';
     ReactiveFormsModule,
     AppRoutingModule,
     OrigamiFormsModule,
+    HttpClientModule,
   ],
   providers: [
     NotificationsService

@@ -3,7 +3,7 @@ const Team = require("./teamModel");
 exports.addNewTeam = (request, response) => {
     const team = new Team();
     team.teamName = request.body.teamName || request.body.playerName;
-    team.playerName = request.body.playerName || request.body.name;
+    team.playerName = request.body.playerName || request.body.teamName;
     team.playedGames = 0;
     team.playedGames = 0;
     team.wonGames = 0;

@@ -5,6 +5,8 @@ import "@ui5/webcomponents/dist/Panel.js";
 import "@ui5/webcomponents/dist/Input.js";
 import "@ui5/webcomponents/dist/features/InputElementsFormSupport.js";
 import "@ui5/webcomponents/dist/Label.js";
+import "@ui5/webcomponents/dist/MessageStrip.js";
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-add-team',
@@ -14,7 +16,9 @@ import "@ui5/webcomponents/dist/Label.js";
 })
 export class AddTeamComponent implements OnInit {
   private newTeamForm;
-  constructor(private formBuilder: FormBuilder) {
+  private newTeammAdded: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private teamService: TeamService) {
     this.newTeamForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       player: ['', [Validators.required, Validators.minLength(3)]]
@@ -25,7 +29,15 @@ export class AddTeamComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newTeamForm.value);
+    console.log(this.newTeamForm.value); 
+    this.teamService.addTeam(this.newTeamForm.value.name, this.newTeamForm.value.player)
+      .subscribe(team => {
+        this.newTeammAdded = true;
+
+        setTimeout(() => {
+          this.newTeammAdded = false;
+        }, 3000);
+      })
   }
 
 }

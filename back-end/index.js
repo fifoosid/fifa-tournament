@@ -1,4 +1,5 @@
 const app = require('express')();
+const cors = require('cors');
 const http = require('http');
 const server = http.Server(app);
 const io = require('socket.io')(server);
@@ -26,7 +27,7 @@ if (!db) {
 
 // Routing
 const apiRoutes = require("./api-routes");
-app.use('/api', apiRoutes);
+app.use('/api', cors(), apiRoutes);
 
 // socket.io
 io.on('connection', (socket) => {
