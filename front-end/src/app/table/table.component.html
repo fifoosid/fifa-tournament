@@ -1,6 +1,6 @@
 <ui5-title class="margin-bottom">Standing</ui5-title>
 
-<ui5-table class="demo-table" id="tbl">
+<ui5-table no-data-text="Please start tournament" show-no-data>
 
   <ui5-table-column slot="columns">
     <ui5-label>#</ui5-label>
@@ -10,35 +10,35 @@
     <ui5-label>Team</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns" popin-text="Player" demand-popin>
+  <ui5-table-column slot="columns" min-width="1000" popin-text="Player" demand-popin>
     <ui5-label>Player</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns"  min-width="450" popin-text="Played" demand-popin>
     <ui5-label>Played</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="800">
     <ui5-label>Won</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="800">
     <ui5-label>Draw</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="800">
     <ui5-label>Lost</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="800">
     <ui5-label>Scored</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="800">
     <ui5-label>Received</ui5-label>
   </ui5-table-column>
 
-  <ui5-table-column slot="columns">
+  <ui5-table-column slot="columns" min-width="450" popin-text="Goal Difference" demand-popin>
     <ui5-label>Goal Difference</ui5-label>
   </ui5-table-column>
   <ui5-table-column slot="columns">

@@ -12,3 +12,7 @@
 .margin-top-small-medium {
     margin-top: 2rem;
 }
+
+ui5-title, ui5-label {
+    text-align: center;
+}

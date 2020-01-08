@@ -1,11 +1,11 @@
 <section class="start-tournament-wrapper" *ngIf="!this.tournamentStarted">
-  <ui5-title>Welcome to your Fifa tournament!</ui5-title>
-  <ui5-label class="margin-top-small-medium">If you have added all your teams and feel ready, you can start the tournament from here:</ui5-label>
+  <ui5-title wrap>Welcome to your Fifa tournament!</ui5-title>
+  <ui5-label class="margin-top-small-medium" wrap>If you have added all your teams and feel ready, you can start the tournament from here:</ui5-label>
   <ui5-button class="margin-top-small" (click)="startTournament()">Start Tournament</ui5-button>
 </section>
 
 <section class="tournament-started-wrapper" *ngIf="this.tournamentStarted">
-  <ui5-title>Welcome to Your Fifa Tournament!</ui5-title>
-  <ui5-label class="margin-top-small-medium">Check out the standing here:</ui5-label>
+  <ui5-title wrap>Welcome to Your Fifa Tournament!</ui5-title>
+  <ui5-label class="margin-top-small-medium" wrap>Check out the standing here:</ui5-label>
   <ui5-button class="margin-top-small" (click)="redirectToStanding()">Standing</ui5-button>
 </section>

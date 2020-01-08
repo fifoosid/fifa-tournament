@@ -48,3 +48,15 @@
     bottom: 2rem;
     left: 2rem;
 }
+
+@media(max-width: 850px) {
+    .form-wrapper {
+        flex-direction: column;
+        align-items: center;    
+    }
+
+    .team-wrapper {
+        width: 100%;
+        justify-content: center;
+    }
+}
