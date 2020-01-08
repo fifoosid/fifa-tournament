@@ -17,3 +17,4 @@ My idea is to create an PWA, which keeps track of FIFA games and generates stand
  - ExpressJS
  - MongoDB
  - Mongoose
+ - WebSocket.io
